@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PLOS - Pop Punk Artist</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700;800;900&display=swap');
         
         * {
             margin: 0;
@@ -14,22 +14,21 @@
         }
         
         :root {
-            --primary: #ff6b35;
-            --secondary: #f7931e;
-            --accent: #c1272d;
+            --orange: #ff6b35;
+            --red: #c1272d;
+            --pink: #ff007f;
+            --blue: #00a8ff;
+            --yellow: #ffc312;
             --purple: #662d91;
             --dark: #1a1a1a;
-            --darker: #000000;
-            --light: #ffffff;
+            --black: #000000;
+            --white: #ffffff;
             --gray: #666666;
-            --green-dark: #2d5016;
-            --graffiti-pink: #ff007f;
-            --graffiti-blue: #00a8ff;
-            --graffiti-yellow: #ffc312;
+            --light-gray: #f5f5f5;
         }
         
         body {
-            background: var(--light);
+            background: var(--white);
             color: var(--dark);
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
@@ -45,7 +44,7 @@
             position: fixed;
             width: 20px;
             height: 20px;
-            background: var(--primary);
+            background: var(--orange);
             border-radius: 50%;
             pointer-events: none;
             z-index: 9999;
@@ -57,14 +56,14 @@
             position: fixed;
             width: 40px;
             height: 40px;
-            border: 1px solid var(--accent);
+            border: 2px solid var(--pink);
             border-radius: 50%;
             pointer-events: none;
             z-index: 9998;
             transition: all 0.3s ease;
         }
         
-        /* Header minimalista */
+        /* Header */
         .header {
             position: fixed;
             top: 0;
@@ -73,8 +72,8 @@
             padding: 2rem;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
+            border-bottom: 3px solid var(--dark);
             transition: all 0.3s ease;
-            border-bottom: 2px solid var(--dark);
         }
         
         .nav {
@@ -87,43 +86,48 @@
         
         .logo {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 900;
-            color: var(--dark);
-            letter-spacing: -0.02em;
+            color: var(--black);
             text-transform: uppercase;
-            position: relative;
-            text-shadow: 
-                3px 3px 0px var(--primary),
-                6px 6px 0px var(--accent),
-                9px 9px 0px var(--purple);
-            animation: graffitiShift 4s ease-in-out infinite;
+            letter-spacing: -0.05em;
             transform: rotate(-2deg);
+            text-shadow: 
+                3px 3px 0px var(--orange),
+                6px 6px 0px var(--red),
+                9px 9px 0px var(--purple);
+            animation: logoGraffiti 5s ease-in-out infinite;
         }
         
-        @keyframes graffitiShift {
+        @keyframes logoGraffiti {
             0% { 
                 text-shadow: 
-                    3px 3px 0px var(--primary),
-                    6px 6px 0px var(--accent),
+                    3px 3px 0px var(--orange),
+                    6px 6px 0px var(--red),
                     9px 9px 0px var(--purple);
             }
-            33% { 
+            25% { 
                 text-shadow: 
-                    3px 3px 0px var(--graffiti-pink),
-                    6px 6px 0px var(--graffiti-blue),
-                    9px 9px 0px var(--graffiti-yellow);
+                    3px 3px 0px var(--pink),
+                    6px 6px 0px var(--blue),
+                    9px 9px 0px var(--yellow);
             }
-            66% { 
+            50% { 
                 text-shadow: 
-                    3px 3px 0px var(--graffiti-blue),
-                    6px 6px 0px var(--graffiti-yellow),
-                    9px 9px 0px var(--graffiti-pink);
+                    3px 3px 0px var(--blue),
+                    6px 6px 0px var(--yellow),
+                    9px 9px 0px var(--pink);
+            }
+            75% { 
+                text-shadow: 
+                    3px 3px 0px var(--yellow),
+                    6px 6px 0px var(--purple),
+                    9px 9px 0px var(--orange);
             }
             100% { 
                 text-shadow: 
-                    3px 3px 0px var(--primary),
-                    6px 6px 0px var(--accent),
+                    3px 3px 0px var(--orange),
+                    6px 6px 0px var(--red),
                     9px 9px 0px var(--purple);
             }
         }
@@ -137,7 +141,10 @@
         .nav-links a {
             color: var(--gray);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
             transition: all 0.3s ease;
             position: relative;
         }
@@ -148,26 +155,26 @@
             bottom: -5px;
             left: 0;
             width: 0;
-            height: 2px;
-            background: var(--primary);
+            height: 3px;
+            background: var(--orange);
             transition: width 0.3s ease;
         }
         
         .nav-links a:hover {
-            color: var(--dark);
+            color: var(--black);
         }
         
         .nav-links a:hover::after {
             width: 100%;
         }
         
-        /* Hero section */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
-            background: var(--light);
+            background: var(--white);
             overflow: hidden;
         }
         
@@ -178,17 +185,15 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 80%, var(--primary)20 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, var(--accent)20 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, var(--purple)20 0%, transparent 50%);
-            opacity: 0.1;
-            animation: bgMove 20s ease-in-out infinite;
+                radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 0, 127, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(0, 168, 255, 0.1) 0%, transparent 50%);
+            animation: backgroundMove 15s ease-in-out infinite;
         }
         
-        @keyframes bgMove {
+        @keyframes backgroundMove {
             0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(30px, -30px) rotate(120deg); }
-            66% { transform: translate(-20px, 20px) rotate(240deg); }
+            50% { transform: translate(20px, -20px) rotate(180deg); }
         }
         
         .hero-content {
@@ -200,25 +205,25 @@
         }
         
         .hero h1 {
-            font-size: clamp(5rem, 15vw, 18rem);
+            font-size: clamp(6rem, 18vw, 20rem);
             font-weight: 900;
-            line-height: 0.8;
+            line-height: 0.75;
             margin-bottom: 2rem;
             font-family: 'JetBrains Mono', monospace;
             text-transform: uppercase;
-            color: var(--dark);
+            color: var(--black);
+            transform: rotate(-2deg);
             text-shadow: 
-                4px 4px 0px var(--primary),
-                8px 8px 0px var(--accent),
-                12px 12px 0px var(--purple),
-                16px 16px 0px var(--graffiti-pink);
-            transform: rotate(-1deg);
-            animation: graffitiHeroShift 6s ease-in-out infinite;
+                5px 5px 0px var(--orange),
+                10px 10px 0px var(--red),
+                15px 15px 0px var(--purple),
+                20px 20px 0px var(--pink);
+            animation: heroGraffiti 8s ease-in-out infinite;
             position: relative;
         }
         
         .hero h1::before {
-            content: 'PLOS';
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
@@ -227,91 +232,91 @@
             background: repeating-linear-gradient(
                 45deg,
                 transparent,
-                transparent 2px,
-                rgba(255, 107, 53, 0.1) 2px,
-                rgba(255, 107, 53, 0.1) 4px
+                transparent 3px,
+                rgba(255, 107, 53, 0.1) 3px,
+                rgba(255, 107, 53, 0.1) 6px
             );
             z-index: -1;
-            animation: graffitiPattern 3s linear infinite;
+            animation: patternMove 4s linear infinite;
         }
         
-        @keyframes graffitiHeroShift {
+        @keyframes heroGraffiti {
             0% { 
                 text-shadow: 
-                    4px 4px 0px var(--primary),
-                    8px 8px 0px var(--accent),
-                    12px 12px 0px var(--purple),
-                    16px 16px 0px var(--graffiti-pink);
-                transform: rotate(-1deg);
+                    5px 5px 0px var(--orange),
+                    10px 10px 0px var(--red),
+                    15px 15px 0px var(--purple),
+                    20px 20px 0px var(--pink);
+                transform: rotate(-2deg);
             }
             25% { 
                 text-shadow: 
-                    4px 4px 0px var(--graffiti-blue),
-                    8px 8px 0px var(--graffiti-yellow),
-                    12px 12px 0px var(--graffiti-pink),
-                    16px 16px 0px var(--primary);
+                    5px 5px 0px var(--blue),
+                    10px 10px 0px var(--yellow),
+                    15px 15px 0px var(--pink),
+                    20px 20px 0px var(--orange);
                 transform: rotate(1deg);
             }
             50% { 
                 text-shadow: 
-                    4px 4px 0px var(--graffiti-yellow),
-                    8px 8px 0px var(--graffiti-pink),
-                    12px 12px 0px var(--graffiti-blue),
-                    16px 16px 0px var(--accent);
-                transform: rotate(-0.5deg);
+                    5px 5px 0px var(--yellow),
+                    10px 10px 0px var(--pink),
+                    15px 15px 0px var(--blue),
+                    20px 20px 0px var(--red);
+                transform: rotate(-1deg);
             }
             75% { 
                 text-shadow: 
-                    4px 4px 0px var(--graffiti-pink),
-                    8px 8px 0px var(--primary),
-                    12px 12px 0px var(--graffiti-yellow),
-                    16px 16px 0px var(--graffiti-blue);
+                    5px 5px 0px var(--pink),
+                    10px 10px 0px var(--orange),
+                    15px 15px 0px var(--yellow),
+                    20px 20px 0px var(--blue);
                 transform: rotate(0.5deg);
             }
             100% { 
                 text-shadow: 
-                    4px 4px 0px var(--primary),
-                    8px 8px 0px var(--accent),
-                    12px 12px 0px var(--purple),
-                    16px 16px 0px var(--graffiti-pink);
-                transform: rotate(-1deg);
+                    5px 5px 0px var(--orange),
+                    10px 10px 0px var(--red),
+                    15px 15px 0px var(--purple),
+                    20px 20px 0px var(--pink);
+                transform: rotate(-2deg);
             }
         }
         
-        @keyframes graffitiPattern {
-            0% { transform: translateX(-10px); }
-            100% { transform: translateX(10px); }
+        @keyframes patternMove {
+            0% { transform: translateX(-20px); }
+            100% { transform: translateX(20px); }
         }
         
         .hero-subtitle {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--gray);
             margin-bottom: 3rem;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
         
         .hero-btn {
             display: inline-flex;
             align-items: center;
-            gap: 1rem;
-            padding: 1.2rem 2.5rem;
-            background: var(--dark);
-            border: 3px solid var(--primary);
-            color: var(--light);
+            gap: 1.5rem;
+            padding: 1.5rem 3rem;
+            background: var(--black);
+            border: 4px solid var(--orange);
+            color: var(--white);
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 0;
+            letter-spacing: 2px;
+            font-family: 'JetBrains Mono', monospace;
             transition: all 0.4s ease;
+            transform: rotate(-1.5deg);
+            box-shadow: 
+                5px 5px 0px var(--orange),
+                10px 10px 0px var(--red);
             position: relative;
             overflow: hidden;
-            transform: rotate(-1deg);
-            box-shadow: 
-                4px 4px 0px var(--primary),
-                8px 8px 0px var(--accent);
         }
         
         .hero-btn::before {
@@ -321,7 +326,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, var(--graffiti-pink), var(--graffiti-blue));
+            background: linear-gradient(90deg, var(--pink), var(--blue));
             transition: left 0.4s ease;
             z-index: -1;
         }
@@ -331,11 +336,11 @@
         }
         
         .hero-btn:hover {
-            border-color: var(--graffiti-pink);
-            transform: rotate(0deg) translateY(-3px);
+            transform: rotate(0deg) translateY(-5px);
+            border-color: var(--pink);
             box-shadow: 
-                6px 6px 0px var(--graffiti-pink),
-                12px 12px 0px var(--graffiti-blue);
+                8px 8px 0px var(--pink),
+                16px 16px 0px var(--blue);
         }
         
         /* Secciones */
@@ -346,52 +351,50 @@
         }
         
         .section-title {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 900;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
             text-align: center;
-            position: relative;
             font-family: 'JetBrains Mono', monospace;
             text-transform: uppercase;
-            color: var(--dark);
-            text-shadow: 
-                2px 2px 0px var(--primary),
-                4px 4px 0px var(--accent);
+            color: var(--black);
             transform: rotate(-1deg);
+            text-shadow: 
+                3px 3px 0px var(--orange),
+                6px 6px 0px var(--red);
+            position: relative;
         }
         
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -1rem;
+            bottom: -2rem;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: 2px;
+            width: 100px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--orange), var(--pink));
         }
         
-        /* Música section */
+        /* Grid de música */
         .music-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 3rem;
             margin-top: 4rem;
         }
         
         .album-card {
-            background: var(--light);
-            border-radius: 0;
-            padding: 2rem;
-            border: 3px solid var(--dark);
+            background: var(--white);
+            padding: 2.5rem;
+            border: 4px solid var(--black);
             transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
             transform: rotate(1deg);
             box-shadow: 
-                4px 4px 0px var(--primary),
-                8px 8px 0px var(--accent);
+                5px 5px 0px var(--orange),
+                10px 10px 0px var(--red);
+            position: relative;
+            overflow: hidden;
         }
         
         .album-card::before {
@@ -404,13 +407,12 @@
             background: repeating-linear-gradient(
                 -45deg,
                 transparent,
-                transparent 10px,
-                rgba(255, 107, 53, 0.05) 10px,
-                rgba(255, 107, 53, 0.05) 20px
+                transparent 15px,
+                rgba(255, 107, 53, 0.03) 15px,
+                rgba(255, 107, 53, 0.03) 30px
             );
             opacity: 0;
             transition: opacity 0.4s ease;
-            z-index: 0;
         }
         
         .album-card:hover::before {
@@ -419,22 +421,21 @@
         
         .album-card:hover {
             transform: rotate(0deg) translateY(-10px);
-            border-color: var(--primary);
+            border-color: var(--orange);
             box-shadow: 
-                6px 6px 0px var(--graffiti-pink),
-                12px 12px 0px var(--graffiti-blue);
+                8px 8px 0px var(--pink),
+                16px 16px 0px var(--blue);
         }
         
         .album-cover {
             width: 100%;
             height: 250px;
-            background: linear-gradient(135deg, var(--green-dark), var(--dark));
-            border-radius: 15px;
+            background: linear-gradient(135deg, var(--orange), var(--red));
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             position: relative;
             overflow: hidden;
         }
@@ -446,22 +447,22 @@
             left: 50%;
             width: 120%;
             height: 120%;
-            background: conic-gradient(from 0deg, var(--primary), var(--accent), var(--purple), var(--primary));
+            background: conic-gradient(from 0deg, var(--orange), var(--pink), var(--blue), var(--orange));
             transform: translate(-50%, -50%);
-            opacity: 0.1;
-            animation: rotate 20s linear infinite;
+            opacity: 0.3;
+            animation: rotate360 25s linear infinite;
         }
         
-        @keyframes rotate {
+        @keyframes rotate360 {
             from { transform: translate(-50%, -50%) rotate(0deg); }
             to { transform: translate(-50%, -50%) rotate(360deg); }
         }
         
         .album-title {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 900;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
+            margin-bottom: 1rem;
+            color: var(--black);
             font-family: 'JetBrains Mono', monospace;
             text-transform: uppercase;
             position: relative;
@@ -470,50 +471,50 @@
         
         .album-desc {
             color: var(--gray);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             position: relative;
             z-index: 10;
+            font-weight: 500;
         }
         
         .track-list {
             list-style: none;
+            position: relative;
+            z-index: 10;
         }
         
         .track-list li {
-            padding: 0.5rem 0;
-            border-bottom: 2px solid var(--primary);
+            padding: 0.8rem 0;
+            border-bottom: 3px solid var(--orange);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
-            z-index: 10;
-            font-weight: 600;
-            color: var(--dark);
+            font-weight: 700;
+            color: var(--black);
         }
         
         .track-list li:last-child {
             border-bottom: none;
         }
         
-        /* Eventos grid */
+        /* Grid de eventos */
         .events-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
             margin-top: 4rem;
         }
         
         .event-card {
-            background: var(--light);
-            border-radius: 0;
+            background: var(--white);
             overflow: hidden;
             transition: all 0.4s ease;
-            border: 3px solid var(--dark);
-            position: relative;
+            border: 4px solid var(--black);
             transform: rotate(-0.5deg);
             box-shadow: 
-                4px 4px 0px var(--purple),
-                8px 8px 0px var(--graffiti-pink);
+                5px 5px 0px var(--purple),
+                10px 10px 0px var(--pink);
+            position: relative;
         }
         
         .event-card::before {
@@ -526,9 +527,9 @@
             background: repeating-linear-gradient(
                 45deg,
                 transparent,
-                transparent 8px,
-                rgba(139, 92, 246, 0.05) 8px,
-                rgba(139, 92, 246, 0.05) 16px
+                transparent 12px,
+                rgba(102, 45, 145, 0.03) 12px,
+                rgba(102, 45, 145, 0.03) 24px
             );
             opacity: 0;
             transition: opacity 0.4s ease;
@@ -542,40 +543,41 @@
             transform: rotate(0deg) translateY(-8px);
             border-color: var(--purple);
             box-shadow: 
-                6px 6px 0px var(--graffiti-blue),
-                12px 12px 0px var(--graffiti-yellow);
+                8px 8px 0px var(--blue),
+                16px 16px 0px var(--yellow);
         }
         
         .event-image {
-            height: 200px;
-            background: linear-gradient(45deg, var(--purple), var(--accent));
+            height: 220px;
+            background: linear-gradient(45deg, var(--purple), var(--pink));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 3.5rem;
             position: relative;
         }
         
         .event-info {
-            padding: 2rem;
+            padding: 2.5rem;
             position: relative;
             z-index: 10;
         }
         
         .event-date {
-            color: var(--primary);
+            color: var(--orange);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            font-weight: 800;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .event-title {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-weight: 900;
-            margin-bottom: 1rem;
-            color: var(--dark);
+            margin-bottom: 1.2rem;
+            color: var(--black);
             font-family: 'JetBrains Mono', monospace;
             text-transform: uppercase;
         }
@@ -583,14 +585,15 @@
         .event-desc {
             color: var(--gray);
             font-weight: 500;
+            line-height: 1.7;
         }
         
         /* Footer */
         .footer {
-            padding: 4rem 2rem;
-            background: var(--dark);
+            padding: 5rem 2rem;
+            background: var(--black);
             text-align: center;
-            border-top: 4px solid var(--primary);
+            border-top: 5px solid var(--orange);
             position: relative;
         }
         
@@ -604,52 +607,63 @@
             background: repeating-linear-gradient(
                 90deg,
                 transparent,
-                transparent 20px,
-                rgba(255, 107, 53, 0.05) 20px,
-                rgba(255, 107, 53, 0.05) 40px
+                transparent 25px,
+                rgba(255, 107, 53, 0.05) 25px,
+                rgba(255, 107, 53, 0.05) 50px
             );
         }
         
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
         }
         
         .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 60px;
-            height: 60px;
-            border: 3px solid var(--light);
-            border-radius: 0;
-            color: var(--light);
+            width: 70px;
+            height: 70px;
+            border: 4px solid var(--white);
+            color: var(--white);
             text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.5rem;
-            transform: rotate(2deg);
+            transition: all 0.4s ease;
+            font-size: 1.8rem;
+            transform: rotate(3deg);
             box-shadow: 
-                3px 3px 0px var(--primary),
-                6px 6px 0px var(--accent);
+                4px 4px 0px var(--orange),
+                8px 8px 0px var(--red);
             position: relative;
             z-index: 10;
         }
         
         .social-links a:hover {
-            border-color: var(--graffiti-pink);
-            color: var(--graffiti-pink);
-            transform: rotate(0deg) translateY(-5px);
+            border-color: var(--pink);
+            color: var(--pink);
+            transform: rotate(0deg) translateY(-8px);
             box-shadow: 
-                4px 4px 0px var(--graffiti-blue),
-                8px 8px 0px var(--graffiti-yellow);
+                6px 6px 0px var(--blue),
+                12px 12px 0px var(--yellow);
         }
         
-        /* Mobile responsive */
+        .footer p {
+            color: var(--white);
+            position: relative;
+            z-index: 10;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+            }
+            
+            .logo {
+                font-size: 2.2rem;
             }
             
             .section {
@@ -661,14 +675,18 @@
             }
             
             .hero-subtitle {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
+            }
+            
+            .section-title {
+                font-size: 2.8rem;
             }
         }
         
-        /* Scroll animations */
+        /* Animaciones de scroll */
         .animate-on-scroll {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px);
             transition: all 0.8s ease;
         }
         
@@ -684,12 +702,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--dark);
+            background: var(--white);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 10000;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.8s ease;
         }
         
         .loader.hidden {
@@ -699,18 +717,32 @@
         
         .loading-text {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 2rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--accent), var(--purple));
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: pulse 2s ease-in-out infinite;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--black);
+            text-transform: uppercase;
+            text-shadow: 
+                3px 3px 0px var(--orange),
+                6px 6px 0px var(--red),
+                9px 9px 0px var(--purple);
+            animation: loadingPulse 2s ease-in-out infinite;
         }
         
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+        @keyframes loadingPulse {
+            0%, 100% { 
+                transform: scale(1);
+                text-shadow: 
+                    3px 3px 0px var(--orange),
+                    6px 6px 0px var(--red),
+                    9px 9px 0px var(--purple);
+            }
+            50% { 
+                transform: scale(1.1);
+                text-shadow: 
+                    4px 4px 0px var(--pink),
+                    8px 8px 0px var(--blue),
+                    12px 12px 0px var(--yellow);
+            }
         }
     </style>
 </head>
@@ -757,7 +789,7 @@
             <div class="album-card animate-on-scroll">
                 <div class="album-cover">🎸</div>
                 <h3 class="album-title">Último EP</h3>
-                <p class="album-desc">Una colección de tracks que exploran los límites entre el pop punk y el rock alternativo.</p>
+                <p class="album-desc">Una colección de tracks que exploran los límites entre el pop punk y el rock alternativo con una energía única.</p>
                 <ul class="track-list">
                     <li><span>Rebelde Digital</span> <span>3:45</span></li>
                     <li><span>Neón y Asfalto</span> <span>4:12</span></li>
@@ -769,7 +801,7 @@
             <div class="album-card animate-on-scroll">
                 <div class="album-cover">🔥</div>
                 <h3 class="album-title">Singles</h3>
-                <p class="album-desc">Los hits que están definiendo el sonido de PLOS y conquistando las plataformas digitales.</p>
+                <p class="album-desc">Los hits que están definiendo el sonido de PLOS y conquistando las plataformas digitales con su estilo único.</p>
                 <ul class="track-list">
                     <li><span>Velocidad Nocturna</span> <span>3:20</span></li>
                     <li><span>Ritmo Urbano</span> <span>3:55</span></li>
@@ -780,7 +812,7 @@
             <div class="album-card animate-on-scroll">
                 <div class="album-cover">⚡</div>
                 <h3 class="album-title">En Proceso</h3>
-                <p class="album-desc">Próximas colaboraciones y proyectos que prometen revolucionar la escena musical emergente.</p>
+                <p class="album-desc">Próximas colaboraciones y proyectos que prometen revolucionar la escena musical emergente nacional.</p>
                 <ul class="track-list">
                     <li><span>Colaboración Secreta</span> <span>TBD</span></li>
                     <li><span>Remix Experimental</span> <span>TBD</span></li>
@@ -799,7 +831,7 @@
                 <div class="event-info">
                     <div class="event-date">15.03.2025</div>
                     <h3 class="event-title">Festival Emergente</h3>
-                    <p class="event-desc">Debut en el festival más importante de música alternativa del país. Una noche donde PLOS compartirá escenario con los mejores artistas emergentes.</p>
+                    <p class="event-desc">Debut en el festival más importante de música alternativa del país. Una noche donde PLOS compartirá escenario con los mejores artistas emergentes de la escena nacional.</p>
                 </div>
             </div>
             
@@ -808,7 +840,7 @@
                 <div class="event-info">
                     <div class="event-date">28.03.2025</div>
                     <h3 class="event-title">Venue Íntimo</h3>
-                    <p class="event-desc">Show acústico en formato íntimo donde la audiencia podrá experimentar las canciones de PLOS en su forma más pura y emocional.</p>
+                    <p class="event-desc">Show acústico en formato íntimo donde la audiencia podrá experimentar las canciones de PLOS en su forma más pura y emocional, sin filtros ni efectos.</p>
                 </div>
             </div>
             
@@ -817,7 +849,7 @@
                 <div class="event-info">
                     <div class="event-date">10.04.2025</div>
                     <h3 class="event-title">Rock Underground</h3>
-                    <p class="event-desc">Concierto en el legendario club underground donde nacieron los mejores artistas del rock alternativo de la ciudad.</p>
+                    <p class="event-desc">Concierto en el legendario club underground donde nacieron los mejores artistas del rock alternativo de la ciudad. Una noche de pura energía.</p>
                 </div>
             </div>
             
@@ -826,7 +858,7 @@
                 <div class="event-info">
                     <div class="event-date">25.04.2025</div>
                     <h3 class="event-title">Colaboración Live</h3>
-                    <p class="event-desc">Show especial con invitados sorpresa donde PLOS explorará nuevos sonidos y presentará colaboraciones exclusivas por primera vez.</p>
+                    <p class="event-desc">Show especial con invitados sorpresa donde PLOS explorará nuevos sonidos y presentará colaboraciones exclusivas por primera vez en vivo.</p>
                 </div>
             </div>
             
@@ -835,7 +867,7 @@
                 <div class="event-info">
                     <div class="event-date">08.05.2025</div>
                     <h3 class="event-title">Festival de Primavera</h3>
-                    <p class="event-desc">Headliner en el festival al aire libre más esperado del año, donde PLOS presentará su show más ambicioso hasta la fecha.</p>
+                    <p class="event-desc">Headliner en el festival al aire libre más esperado del año, donde PLOS presentará su show más ambicioso hasta la fecha con efectos visuales únicos.</p>
                 </div>
             </div>
             
@@ -867,7 +899,7 @@
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('loader').classList.add('hidden');
-            }, 1500);
+            }, 2000);
         });
         
         // Custom cursor
@@ -884,17 +916,19 @@
             }, 100);
         });
         
-        // Hover effects
+        // Hover effects para cursor
         const interactiveElements = document.querySelectorAll('a, button, .album-card, .event-card');
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'scale(1.5)';
+                cursor.style.transform = 'scale(1.8)';
                 cursorFollower.style.transform = 'scale(1.5)';
+                cursorFollower.style.borderColor = 'var(--yellow)';
             });
             
             el.addEventListener('mouseleave', () => {
                 cursor.style.transform = 'scale(1)';
                 cursorFollower.style.transform = 'scale(1)';
+                cursorFollower.style.borderColor = 'var(--pink)';
             });
         });
         
@@ -915,7 +949,7 @@
         // Scroll animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -100px 0px'
         };
         
         const observer = new IntersectionObserver((entries) => {
@@ -935,19 +969,16 @@
             const header = document.querySelector('.header');
             if (window.scrollY > 100) {
                 header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.borderBottom = '2px solid var(--primary)';
+                header.style.borderBottom = '3px solid var(--orange)';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
             } else {
                 header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.borderBottom = '2px solid var(--dark)';
-            }
-        });, 212, 191, 0.3)';
-            } else {
-                header.style.background = 'rgba(15, 15, 35, 0.8)';
-                header.style.borderBottom = 'none';
+                header.style.borderBottom = '3px solid var(--black)';
+                header.style.boxShadow = 'none';
             }
         });
         
-        // Parallax effect on hero
+        // Parallax effect en hero
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const rate = scrolled * -0.3;
@@ -957,13 +988,104 @@
             }
         });
         
-        // Random graffiti color shifts
+        // Cambio automático de colores graffiti
+        const graffitiColors = ['#ff6b35', '#c1272d', '#ff007f', '#00a8ff', '#ffc312', '#662d91'];
+        let colorIndex = 0;
+        
         setInterval(() => {
             const root = document.documentElement;
-            const graffitiColors = ['#ff007f', '#00a8ff', '#ffc312', '#ff6b35', '#c1272d', '#662d91'];
-            const randomColor = graffitiColors[Math.floor(Math.random() * graffitiColors.length)];
-            root.style.setProperty('--primary', randomColor);
+            colorIndex = (colorIndex + 1) % graffitiColors.length;
+            const newColor = graffitiColors[colorIndex];
+            root.style.setProperty('--orange', newColor);
         }, 4000);
+        
+        // Efectos de partículas aleatorias
+        function createGraffitiParticles() {
+            const colors = ['var(--orange)', 'var(--pink)', 'var(--blue)', 'var(--yellow)'];
+            
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'fixed';
+                particle.style.width = (Math.random() * 6 + 2) + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.borderRadius = '50%';
+                particle.style.pointerEvents = 'none';
+                particle.style.zIndex = '1';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.opacity = '0.3';
+                particle.style.animation = `float ${Math.random() * 8 + 4}s ease-in-out infinite`;
+                
+                document.body.appendChild(particle);
+                
+                // Remover después de un tiempo
+                setTimeout(() => {
+                    if (particle.parentNode) {
+                        particle.parentNode.removeChild(particle);
+                    }
+                }, 8000);
+            }
+        }
+        
+        // Crear partículas periódicamente
+        setInterval(createGraffitiParticles, 6000);
+        
+        // Animación float para partículas
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0%, 100% { 
+                    transform: translateY(0px) rotate(0deg); 
+                    opacity: 0.3;
+                }
+                25% { 
+                    transform: translateY(-20px) rotate(90deg); 
+                    opacity: 0.6;
+                }
+                50% { 
+                    transform: translateY(-40px) rotate(180deg); 
+                    opacity: 0.8;
+                }
+                75% { 
+                    transform: translateY(-20px) rotate(270deg); 
+                    opacity: 0.4;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Efecto de glitch en cards al hacer click
+        document.querySelectorAll('.album-card, .event-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.animation = 'glitch 0.5s ease-in-out';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 500);
+            });
+        });
+        
+        // Animación glitch
+        const glitchStyle = document.createElement('style');
+        glitchStyle.textContent = `
+            @keyframes glitch {
+                0% { transform: translate(0); }
+                10% { transform: translate(-2px, -1px) rotate(1deg); }
+                20% { transform: translate(1px, 2px) rotate(-1deg); }
+                30% { transform: translate(-1px, -2px) rotate(1deg); }
+                40% { transform: translate(2px, 1px) rotate(-1deg); }
+                50% { transform: translate(-2px, 2px) rotate(1deg); }
+                60% { transform: translate(1px, -1px) rotate(-1deg); }
+                70% { transform: translate(-1px, 1px) rotate(1deg); }
+                80% { transform: translate(2px, -2px) rotate(-1deg); }
+                90% { transform: translate(-2px, 1px) rotate(1deg); }
+                100% { transform: translate(0); }
+            }
+        `;
+        document.head.appendChild(glitchStyle);
+        
+        // Inicializar partículas al cargar
+        createGraffitiParticles();
     </script>
 </body>
 </html>
